@@ -10,15 +10,245 @@
     </head>
     <body>
         <container id="container">
-            <header id="header"></header>
+            <header id="header">
+                <div class="dropdown">Tematy</div>
+                <input type="text" placeholder="fraza" class="search"></input>
+                <button type="button" class="btn" onclick="Search(this)">Szukaj</button>
+            </header>
             <div id="incontainer">
                 <div class="section" id="a">
-                    <div class="title">kek</div>
-                    <div class="text">kek</div>
+                    <div class="title">Działanie DHCP</div>
+                    <div class="text point">DHCP (ang. Dynamic Host Configuration Protocol) to
+                        protokół komunikacyjny umożliwiający komputerom
+                        uzyskanie od serwera danych konfiguracyjnych, np.
+                        adresu IP hosta, adresu IP bramy sieciowej, adresu
+                        serwera DNS, maski sieci. DHCP został opublikowany
+                        jako standard w roku 1993.</div><br>
+                    <div class="text point">DHCP rozwiązuje problem ręcznej konfiguracji sieci
+                        poprzez dynamiczne przydzielanie adresów IP.</div><br>
+                    <div class="text point">opiera się na protokole BOOTP (Bootstrap Protocol),
+                        jednak w stosunku do niego zawiera wiele ulepszeń.
+                        Niewątpliwie najbardziej interesującym jest
+                        dynamiczne przydzielanie adresów IP.</div><br>
+                    <div class="text point">serwer DHCP korzysta przy tym z predefiniowanego
+                        obszaru adresowego i przydziela kolejnym klientom,
+                        które o to występują, adres IP na określony czas
+                        (lease).</div><br>
+                    <div class="text point">w czasie trwania okresu lease klient DHCP nie
+                        występuje do serwera DHCP podczas startu systemu o
+                        nowy adres, a jedynie żąda potwierdzenia istniejącego
+                        stanu lease.</div><br>
+                    <div class="text point">protokół DHCP minimalizuje również możliwe źródła
+                        błędów.</div><br>
+                    <div class="text point">na życzenie podaje, oprócz adresu IP, również inne
+                        parametry, jak choćby standardowa brama, czy adresy
+                        serwerów nazw.</div><br>
                 </div>
                 <div class="section" id="b">
-                    <div class="title">kek</div>
-                    <div class="text point">kek</div>
+                    <div class="title">Zalety usługi DHCP</div>
+                    <div class="text point">użycie serwerów DHCP może znacznie skrócić czas
+                        poświęcany na konfigurowanie lub ponowne
+                        konfigurowanie komputerów w sieci (zmiany mogą być
+                        wprowadzane szybko i automatycznie dzięki temu, że
+                        klienci komunikują się bezpośrednio z serwerami
+                        DHCP).</div><br>
+                    <div class="text point">usługa DHCP pozwala na uniknięcie błędów
+                        konfiguracji spowodowanych ręcznym wpisywaniem
+                        wartości na każdym komputerze.</div><br>
+                    <div class="text point">ponadto zapobiega konfliktom adresów przy
+                        konfigurowaniu nowego komputera w sieci,
+                        wynikającym z ponownego użycia wcześniej
+                        przydzielonego adresu IP.</div><br>
+                </div>
+                <div class="section" id="c">
+                    <div class="title">Proces DHCP i Etapy</div>
+                    <img id="img" src="./img.png" alt="img">
+                    <div class="text point">cały proces uzgadniania i przydzielania jest
+                        czteroetapowy.</div><br>
+                    <div class="title">Etap I: Poszukiwanie serwera DHCP(Discover)</div>
+                    <div class="text point">klient protokołu DHCP emituje pakiet żądania
+                        konfiguracji DHCPDISCOVER, dostarczając swój
+                        adres MAC oraz nazwę hosta.</div>
+                    <div class="text point">czasami routery są konfigurowane, aby przekazywały
+                        pakiety DHCP do właściwego serwera w innej
+                        podsieci.</div>
+                    <div class="text point">jeżeli dany klient miał wcześniej przydzielony adres IP,
+                        to wysyła również tę informację w polu opcji żądany
+                        adres.</div>
+                    <div class="title">Etap II: Oferta DHCP</div>
+                    <div class="text point">oferta DHCP (ang. DHCP Offer) jest składana przez
+                        serwer, który określa właściwą konfigurację klienta na
+                        podstawie sprzętowego adresu urządzenia sieciowego
+                        określonego w polu CHADDR (w sieci lokalnej to
+                        adres MAC). W polu YIADDR serwer przekazuje
+                        klientowi jego adres IP.</div>
+                    <div class="title">Etap III: Żądanie DHCP (Request)</div>
+                    <div class="text point">to kolejny pakiet również wysyłany przez klienta jako
+                        rozgłoszenie.</div>
+                    <div class="text point">powodem takiego postępowania jest potrzeba
+                        powiadomienia jednego serwera o przyjęciu oferty i,
+                        jednocześnie, wszystkich pozostałych o jej
+                        odrzuceniu.</div>
+                    <div class="text">W przypadku odebrania wielu ofert DCHP, proces
+                        podejmowania decyzji przez klienta firmy Microsoft
+                        przebiega następująco:</div>
+                    <div class="text point">klient DHCP przyjmuje ofertę z serwera, który
+                        przydzielał adres IP używany ostatnio,</div>
+                    <div class="text point">jeżeli serwer przydzielający wcześniejszy adres nie
+                        odpowiada, przyjmowana jest pierwsza oferta
+                        odebrana.</div>
+                    <div class="title">Etap IV: Potwierdzenie DHCP</div>
+                    <div class="text point">serwer DHCP oficjalnie przydziela żądany adres
+                        klientowi w pakiecie emisji DHCPACK.</div>
+                    <div class="text point">pakiet zawiera również podane w żądaniu parametry
+                        opcjonalne, długość całkowitego okresu dzierżawy
+                        adresu oraz okresów jego odnawiania.</div>
+                    <div class="text point">serwer przechowuje te informacje w swojej bazie
+                        danych jako przydzieloną dzierżawę.</div>
+                </div>
+                <div class="section" id="d">
+                    <div class="title">Odświeżanie (odnawianie) DHCP</div>
+                    <div class="text point">nieodłącznym elementem przydzielenia klientowi
+                        adresu IP przez serwer DHCP jest przyznanie
+                        dodatkowo tzw. czasu użytkowania (lease).</div>
+                    <div class="text point">określa on czas ważności ustawień.</div>
+                    <div class="text point">w tle pracują dwa zegary - T1 odmierza połowę czasu
+                        użytkowania, zaś T2 - 87,5 procent pełnego czasu
+                        użytkowania.</div>
+                    <div class="text point">po upływie czasu T1 klient wysyła komunikat
+                        DHCPREQUEST do serwera i pyta, czy serwer może
+                        przedłużyć czas użytkowania.</div>
+                    <div class="text point">stan ten określa się jako renewing status.</div>
+                    <div class="text point">z reguły serwer odpowiada wiadomością DHCPACK i
+                        przydziela nowy czas użytkowania.</div>
+                    <div class="text point">serwer resetuje wówczas zegary T1 i T2.</div>
+                    <div class="text point">jeżeli po upływie czasu T2 klient nie otrzyma
+                        wiadomości DHCPACK, rozpoczyna się tak zwany
+                        rebinding status.</div>
+                    <div class="text point">klient musi wysłać komunikat DHCPREQUEST, żeby
+                        uzyskać przedłużenie czasu użytkowania.</div>
+                    <div class="text point">serwer może odpowiedzieć na to żądanie
+                        potwierdzeniem DHCPACK.</div>
+                    <div class="text point">jeżeli jednak i to żądanie pozostanie bez odpowiedzi,
+                        klient musi zażądać nowego adresu IP.</div>
+                    <div class="text point">działa wówczas mechanizm, który rozsyła zapytania
+                        do wszystkich serwerów DHCP w sieci.</div>
+                </div>
+                <div class="section" id="e">
+                    <div class="title">Obszar adresowania a czas użytkownika</div>
+                    <div class="text point">zanim serwer DHCP będzie w ogóle mógł zacząć
+                        przydzielać klientom adresy IP, musi zostać
+                        wyposażony w informacje na temat przewidzianego do
+                        tych celów obszaru adresowego (rangę).</div>
+                    <div class="text point">obszar adresowy jest zdefiniowany poprzez adres
+                        początkowy i końcowy.</div>
+                    <div class="text point">w zależności od implementacji mogą też być obszary
+                        wykluczone, a więc takie, których serwer nie może
+                        przydzielać.</div>
+                    <div class="text point">gwarantuje to bezkolizyjne współistnienie w sieci
+                        adresów stałych i dynamicznie przydzielanych.</div>
+                    <div class="text point">czas użytkowania określany jest zwykle w dniach,
+                        godzinach i minutach.</div>
+                    <div class="text point">parametr ten, jeśli w ogóle jest zaimplementowany w
+                        poszczególnych produktach, musi uwzględniać
+                        obciążenie serwera, zachowanie klientów i stabilność
+                        sieci.</div>
+                    <div class="text point">decydujące znaczenie ma liczba potencjalnych
+                        klientów.</div>
+                    <div class="text point">reguła brzmi: czas użytkowania powinien być
+                        dwukrotnie dłuższy niż czas potrzebny do
+                        przywrócenia pracy serwera w razie jego awarii.</div>
+                </div>
+                <div class="section" id="f">
+                    <div class="title">Przydzielanie adresów IP</div>
+                    <div class="text">Protokół DHCP opisuje trzy techniki przydzielania
+                        adresów IP:</div>
+                    <div class="text point">PRZYDZIELANIE RĘCZNE</div>
+                    <div class="text point">oparte na tablicy adresów MAC oraz odpowiednich dla
+                        nich adresów IP.</div>
+                    <div class="text point">jest ona tworzona przez administratora serwera
+                        DHCP.</div>
+                    <div class="text point">w takiej sytuacji prawo do pracy w sieci mają tylko
+                        komputery zarejestrowane wcześniej przez obsługę
+                        systemu.</div>
+                    <div class="text point">PRZYDZIELANIE AUTOMATYCZNE</div>
+                    <div class="text point">wolne adresy IP z zakresu ustalonego przez
+                        administratora są przydzielane kolejnym zgłaszającym
+                        się po nie klientom.</div>
+                    <div class="text point">PRZYDZIELANIE DYNAMICZNE</div>
+                    <div class="text point">pozwala na ponowne użycie adresów IP.</div>
+                    <div class="text point">administrator sieci nadaje zakres adresów IP do
+                        rozdzielenia.</div>
+                    <div class="text point">wszyscy klienci mają tak skonfigurowane interfejsy
+                        sieciowe, że po starcie systemu automatycznie
+                        pobierają swoje adresy.</div>
+                    <div class="text point">każdy adres przydzielany jest na pewien czas.</div>
+                </div>
+                <div class="section" id="g">
+                    <div class="title">Najpopularniejsze serwery DHCP</div>
+                    <div class="text point">Microsoft wprowadził DHCP do systemu Windows
+                        NT w wersji 3.5 w roku 1994.</div>
+                    <div class="text point">fundacja Internet Systems Consortium opracowała
+                        serwer DHCP w wersji 1.0.0. dla systemów Unix. ISC
+                        DHCP został wydany 6 grudnia 1997 roku, a w 1999
+                        pojawiła się wersja 2.0 bardziej zgodna ze specyfikacją.</div>
+                    <div class="text point">korporacja Cisco opracowała własny serwer DHCP dla
+                        systemu IOS 12.0 w roku 1999. System operacyjny
+                        Solaris firmy Sun został wyposażony w pełną obsługę
+                        protokołu w roku 2001.</div>
+                    <div class="text point">w dystrybucjach Linuksa serwer ISC DHCP jest
+                        zwykle dostępny w pakiecie pod nazwą dhcpd (ang.
+                        Dynamic Host Configuration Protocol Daemon).</div>
+                </div>
+                <div class="section" id="h">
+                    <div class="title">Terminologia protokołu DHCP</div>
+                    <div class="text point">zakres jest pełnym obszarem kolejnych możliwych do
+                        przydzielenia w danej sieci adresów IP.</div>
+                    <div class="text point">zakresy zwykle określają pojedynczą podsieć fizyczną
+                        danej sieci, w której są oferowane usługi DHCP.</div>
+                    <div class="text point">ponadto zakresy są dla serwera podstawą zarządzania
+                        dystrybucją i przypisywaniem klientom w sieci adresów
+                        IP oraz innych związanych z nimi parametrów
+                        konfiguracji.</div>
+                    <div class="text point">superzakres jest administracyjną grupą zakresów, która
+                        może być używana do obsługi wielu logicznych
+                        podsieci IP w tej samej podsieci fizycznej.</div>
+                    <div class="text point">superzakresy zawierają jedynie listę zakresów
+                        składowych (inaczej zakresów podrzędnych), które
+                        mogą być uaktywniane razem.</div>
+                    <div class="text point">superzakresy nie są używane do konfigurowania innych
+                        szczegółów dotyczących korzystania z zakresu.</div>
+                    <div class="text point">aby skonfigurować większość właściwości używanych
+                        w obrębie superzakresu, trzeba indywidualnie
+                        skonfigurować właściwości zakresów składowych.</div>
+                    <div class="text point">OBSZAR WYKLUCZEŃ</div>
+                    <div class="text point">obszar wykluczeń jest ograniczoną sekwencją adresów
+                        IP w zakresie, wykluczoną z ofert usługi DHCP.</div>
+                    <div class="text point">obszary wykluczeń zapewniają, że żaden z należących
+                        do nich adresów nie będzie oferowany przez serwer
+                        klientom DHCP w danej sieci.</div>
+                    <div class="text point">PULA ADRESÓW</div>
+                    <div class="text point">po zdefiniowaniu zakresu DHCP i zastosowaniu
+                        obszarów wykluczeń pozostałe adresy tworzą dostępną
+                        pulę adresów w zakresie.</div>
+                    <div class="text point">adresy z tej puli mogą być dynamicznie przypisywane
+                        przez serwer klientom DHCP w sieci.</div>
+                    <div class="text point">DZIERŻAWA</div>
+                    <div class="text point">dzierżawa to określony przez serwer DHCP czas,
+                        przez jaki komputer kliencki może korzystać z
+                        przypisanego mu adresu IP.</div>
+                    <div class="text point">przed wygaśnięciem dzierżawy adresu klient zwykle
+                        odnawia ją na serwerze.</div>
+                    <div class="text point">dzierżawa staje się nieaktywna, jeśli wygaśnie lub
+                        zostanie usunięta z serwera.</div>
+                    <div class="text point">czas trwania dzierżawy określa, kiedy dzierżawa wygasa
+                        i jak często klient musi ją odnawiać.</div>
+                    <div class="text point">ZASTRZEŻENIE</div>
+                    <div class="text point">zastrzeżenie służy do utworzenia przez serwer DHCP
+                        stałego przypisania dzierżawy adresu.</div>
+                    <div class="text point">zastrzeżenia dają pewność, że dane urządzenie
+                        sprzętowe w podsieci będzie mogło zawsze korzystać z
+                        tego samego adresu IP.</div>
                 </div>
             </div>
             <container id="dynamicsite">

@@ -1,4 +1,5 @@
 var contents = [];
+$('#dynamicsite').hide();
 const HideContent = e => {
     $('#incontainer').hide();
 }
@@ -26,12 +27,11 @@ function changeSite(e) {
         lastsite=e
     }
 }
-var docs = document.querySelectorAll('.section');
+var docs = document.querySelectorAll('.point');
 docs.forEach(doc => {
-    doc.addEventListener('click', changeSite);
-    let start=doc.firstElementChild.innerHTML;
-    let desc=doc.getElementsByTagName('div')[1].innerHTML;
-    let temp=`<p class="stitle" onclick="changeSite('${doc.id}')">${start}</p><p class="stext" onclick="changeSite('${doc.id}')">${desc.substring(0,232)+"..."}</p>`
-    contents[doc.id]=doc.innerHTML;
-    doc.innerHTML = temp+doc.innerHTML;
+    doc.innerHTML = "☉ "+doc.innerHTML;
 });
+
+function Search(e) {
+
+}
