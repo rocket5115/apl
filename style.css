@@ -36,23 +36,50 @@ header {
     left: 0%;
     width: 100%;
     height: 7%;
-    background: #a90329;
-    background: -moz-linear-gradient(top,  #a90329 0%, #8f0222 44%, #6d0019 100%);
-    background: -webkit-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%);
-    background: linear-gradient(to bottom,  #a90329 0%,#8f0222 44%,#6d0019 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );
+    background: rgb(0,22,36);
+background: radial-gradient(circle, rgba(0,22,36,1) 0%, rgba(54,9,121,1) 52%, rgba(154,0,255,1) 100%);
+}
+
+#left {
+    position: fixed;
+    left: 0%;
+    top:20%;
+    width: 10%;
+    height: 60%;
+    z-index: 3;
+    display: grid;
+    grid-auto-flow: row;
+}
+
+#la {
+    position: relative;
+    display: grid;
+    grid-auto-flow: row;
+}
+
+.hg {
+    color: black;
+    font-weight: 700;
+}
+
+.hg:hover {
+    color: white;
+    cursor: pointer;
 }
 
 #incontainer {
     position: relative;
+    top: 7%;
     left: 0%;
     width: 100%;
     height: auto;
     min-height: 100%;
-    background-color: #7d7e7d;
+    background: rgb(0,22,36);
+    background: linear-gradient(90deg, rgba(0,22,36,1) 0%, rgba(9,64,121,1) 29%, rgba(0,212,255,1) 100%);
     display: grid;
     grid-auto-flow: row;
     row-gap: auto;
+    grid-gap: 1cm;
 }
 
 .section {
@@ -67,6 +94,18 @@ header {
     margin-left: 10%;
     margin-right: 10%;
     width: 80%;
+    background: repeating-linear-gradient(
+        rgba(255, 255, 255, 0.829), rgba(255, 255, 255, 0.767) 25px,
+        #9198e5 26px, #9198e5 27px
+       ) !important;
+}
+
+.section>* {    
+    color: black;
+}
+
+.section>div>.text {
+    font-weight: 900 !important;
 }
 
 #img {
@@ -112,20 +151,23 @@ header {
 
 .dropdown {
     position: relative;
-    left: 25%;
-    top: 30%;
+    left: 5%;
+    top: 0%;
 }
 
 .search {
     position: relative;
-    left: 75%;
-    top: 0%;
+    left: 5%;
+    top: 1%;
+    width: 85%;
+    height: 30%;
+    max-width: 85%;
 }
 
 .btn {
     position: relative;
-    left: 75%;
-    top: 0%;
+    left: 5%;
+    top: -50%;
     height: 20px;
     width: 50px;
 }

@@ -9,11 +9,14 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
+        <div id="left">
+            <textarea type="text" placeholder="fraza" class="search" id="search" value=""></textarea>
+            <button type="button" class="btn" onclick="Search(this)">Szukaj</button>
+            <div id="la"></div>
+        </div>
         <container id="container">
-            <header id="header">
-                <div class="dropdown">Tematy</div>
-                <input type="text" placeholder="fraza" class="search"></input>
-                <button type="button" class="btn" onclick="Search(this)">Szukaj</button>
+            <header id="header" style="position: fixed">
+                <div class="title" style="color: white">DHCP - Dynamic Host Configuration Protocol</div>
             </header>
             <div id="incontainer">
                 <div class="section" id="a">
