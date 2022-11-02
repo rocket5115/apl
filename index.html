@@ -5,22 +5,28 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script async type="text/javascript" src="./main.js"></script>
+        <script defer type="text/javascript" src="./main.js"></script>
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <div id="left">
-            <textarea type="text" placeholder="fraza" class="search" id="search" value=""></textarea>
-            <button type="button" class="btn" onclick="Search(this)">Szukaj</button>
-            <div id="la"></div>
+        <div id="navbar-background"></div>
+        <div id="navbar">
+            <div class="navbar-title" id="navbar-title" onclick="Navbar()">Menu</div>
+            <div class="navbar-placeholder">.</div>
+            <input type="text" placeholder="Tekst" id="navbar-input"></input>
+            <div id="navbar-search" onclick="Search(this)">Szukaj</div>
+            <div class="navbar-placeholder">.</div>
+            <div class="navbar-title">Skróty</div>
         </div>
+        <div id="navbar-replace" style="display:none;" onclick="Navbar()"></div>
         <container id="container">
-            <header id="header" style="position: fixed">
-                <div class="title" style="color: white">DHCP - Dynamic Host Configuration Protocol</div>
-            </header>
+            <div id="header">
+                <div id="headertext">DHCP - Dynamic Host Configuration Protocol</div>
+            </div>
             <div id="incontainer">
                 <div class="section" id="a">
                     <div class="title">Działanie DHCP</div>
+                    <div class="section-wrapper" style="display:none;">
                     <div class="text point">DHCP (ang. Dynamic Host Configuration Protocol) to
                         protokół komunikacyjny umożliwiający komputerom
                         uzyskanie od serwera danych konfiguracyjnych, np.
@@ -45,10 +51,11 @@
                         błędów.</div><br>
                     <div class="text point">na życzenie podaje, oprócz adresu IP, również inne
                         parametry, jak choćby standardowa brama, czy adresy
-                        serwerów nazw.</div><br>
+                        serwerów nazw.</div></div><br>
                 </div>
                 <div class="section" id="b">
                     <div class="title">Zalety usługi DHCP</div>
+                    <div class="section-wrapper" style="display:none;">
                     <div class="text point">użycie serwerów DHCP może znacznie skrócić czas
                         poświęcany na konfigurowanie lub ponowne
                         konfigurowanie komputerów w sieci (zmiany mogą być
@@ -61,10 +68,11 @@
                     <div class="text point">ponadto zapobiega konfliktom adresów przy
                         konfigurowaniu nowego komputera w sieci,
                         wynikającym z ponownego użycia wcześniej
-                        przydzielonego adresu IP.</div><br>
+                        przydzielonego adresu IP.</div></div><br>
                 </div>
                 <div class="section" id="c">
                     <div class="title">Proces DHCP i Etapy</div>
+                    <div class="section-wrapper" style="display:none;">
                     <img id="img" src="./img.png" alt="img">
                     <div class="text point">cały proces uzgadniania i przydzielania jest
                         czteroetapowy.</div><br>
@@ -107,10 +115,11 @@
                         opcjonalne, długość całkowitego okresu dzierżawy
                         adresu oraz okresów jego odnawiania.</div>
                     <div class="text point">serwer przechowuje te informacje w swojej bazie
-                        danych jako przydzieloną dzierżawę.</div>
+                        danych jako przydzieloną dzierżawę.</div></div>
                 </div>
                 <div class="section" id="d">
                     <div class="title">Odświeżanie (odnawianie) DHCP</div>
+                    <div class="section-wrapper" style="display:none;">
                     <div class="text point">nieodłącznym elementem przydzielenia klientowi
                         adresu IP przez serwer DHCP jest przyznanie
                         dodatkowo tzw. czasu użytkowania (lease).</div>
@@ -135,10 +144,11 @@
                     <div class="text point">jeżeli jednak i to żądanie pozostanie bez odpowiedzi,
                         klient musi zażądać nowego adresu IP.</div>
                     <div class="text point">działa wówczas mechanizm, który rozsyła zapytania
-                        do wszystkich serwerów DHCP w sieci.</div>
+                        do wszystkich serwerów DHCP w sieci.</div></div>
                 </div>
                 <div class="section" id="e">
                     <div class="title">Obszar adresowania a czas użytkownika</div>
+                    <div class="section-wrapper" style="display:none;">
                     <div class="text point">zanim serwer DHCP będzie w ogóle mógł zacząć
                         przydzielać klientom adresy IP, musi zostać
                         wyposażony w informacje na temat przewidzianego do
@@ -160,10 +170,11 @@
                         klientów.</div>
                     <div class="text point">reguła brzmi: czas użytkowania powinien być
                         dwukrotnie dłuższy niż czas potrzebny do
-                        przywrócenia pracy serwera w razie jego awarii.</div>
+                        przywrócenia pracy serwera w razie jego awarii.</div></div>
                 </div>
                 <div class="section" id="f">
                     <div class="title">Przydzielanie adresów IP</div>
+                    <div class="section-wrapper" style="display:none;">
                     <div class="text">Protokół DHCP opisuje trzy techniki przydzielania
                         adresów IP:</div>
                     <div class="text point">PRZYDZIELANIE RĘCZNE</div>
@@ -185,10 +196,11 @@
                     <div class="text point">wszyscy klienci mają tak skonfigurowane interfejsy
                         sieciowe, że po starcie systemu automatycznie
                         pobierają swoje adresy.</div>
-                    <div class="text point">każdy adres przydzielany jest na pewien czas.</div>
+                    <div class="text point">każdy adres przydzielany jest na pewien czas.</div></div>
                 </div>
                 <div class="section" id="g">
                     <div class="title">Najpopularniejsze serwery DHCP</div>
+                    <div class="section-wrapper" style="display:none;">
                     <div class="text point">Microsoft wprowadził DHCP do systemu Windows
                         NT w wersji 3.5 w roku 1994.</div>
                     <div class="text point">fundacja Internet Systems Consortium opracowała
@@ -201,10 +213,11 @@
                         protokołu w roku 2001.</div>
                     <div class="text point">w dystrybucjach Linuksa serwer ISC DHCP jest
                         zwykle dostępny w pakiecie pod nazwą dhcpd (ang.
-                        Dynamic Host Configuration Protocol Daemon).</div>
+                        Dynamic Host Configuration Protocol Daemon).</div></div>
                 </div>
                 <div class="section" id="h">
                     <div class="title">Terminologia protokołu DHCP</div>
+                    <div class="section-wrapper" style="display:none;">
                     <div class="text point">zakres jest pełnym obszarem kolejnych możliwych do
                         przydzielenia w danej sieci adresów IP.</div>
                     <div class="text point">zakresy zwykle określają pojedynczą podsieć fizyczną
@@ -251,12 +264,9 @@
                         stałego przypisania dzierżawy adresu.</div>
                     <div class="text point">zastrzeżenia dają pewność, że dane urządzenie
                         sprzętowe w podsieci będzie mogło zawsze korzystać z
-                        tego samego adresu IP.</div>
+                        tego samego adresu IP.</div></div>
                 </div>
             </div>
-            <container id="dynamicsite">
-
-            </container>
         </container>
     </body>
 </html>
